@@ -1,0 +1,18 @@
+---
+const years = Array(90).fill(0);
+const weeks = Array(52).fill(0);
+const weeksElapsed = Math.floor(((new Date()).getTime() - (new Date(2002, 6, 1)).getTime()) / (1000 * 60 * 60 * 24 * 7));
+---
+
+<div class="flex flex-row space-x-1 h-fit w-fit">
+    { years.map((_, year) => (
+        <div class="flex flex-col space-y-1">
+            {			weeks.map((_, week) => (
+                (year * 52 + week) < weeksElapsed  ?
+            <div class="w-3 h-3 bg-black"></div> : (year * 52 + week) === weeksElapsed ?
+            <div class="w-3 h-3 bg-black animate-pulse border-black border-[1px]"></div> :
+            <div class="w-3 h-3 border-[1px] border-black"></div>
+        ))}
+            </div>
+      ))}
+</div>
